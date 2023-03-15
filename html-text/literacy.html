@@ -1,0 +1,249 @@
+<script>
+    document.querySelector('.js-accent-color').addEventListener('change', (e) => {
+	document.documentElement.style.setProperty('--accent-color', e.target.value)
+})
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Vollkorn:ital,wght@0,600;1,500&display=swap');
+
+    :root {
+        --type-body: Open Sans, Helvetica, Arial, sans-serif;
+        --type-quote: Vollkorn;
+        --quote-image-width: 140px;
+        --border-rad: 7px;
+        --accent-color: #003262;
+        --quote-bg: hsl(0 0% 97%);
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--accent-color);
+    }
+
+    a:hover,
+    a:focus {
+        text-decoration: underline;
+    }
+
+    body {
+        margin: 15px 10px;
+        font-family: var(--type-body);
+        color: hsl(0 0% 15%);
+    }
+
+    .article {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    h1 {
+        width: max-content;
+        margin: 0 auto 1.8em;
+        box-shadow:
+            0 2px 0 var(--accent-color),
+            0 4px 0 white,
+            0 6px 0 var(--accent-color);
+        font: 1.4rem var(--type-quote);
+        color: hsl(0 0% 25%);
+    }
+
+    par {
+        display: block;
+        text-indent: 5%;
+        text-align: left;
+        font-size: 20px;
+        line-height: 150%;
+    }
+    
+    quo {
+        font-size: 15px;
+        line-height: 100%;
+        font-family: monospace;
+    }
+
+    ref {
+         text-indent:-5%;
+         font-size: 20px;
+         font-family:monospace;
+    }
+    blockquote {
+        position: relative;
+        margin: 40px 0;
+        padding: 1.6em 2.4em .7em calc(1.4em + var(--quote-image-width));
+        font: italic 1.2rem var(--type-quote);
+        background: var(--quote-bg) no-repeat left / var(--quote-image-width);
+        border-radius: var(--border-rad);
+        border: 2px solid white;
+        box-shadow: 2px 2px 4px hsl(0 0% 0% / 20%);
+        text-indent: 1.6em;
+    }
+
+    @media (min-width: 768px) {
+        blockquote {
+            margin: 40px 60px;
+        }
+    }
+
+    blockquote::before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: var(--border-rad);
+        box-shadow:
+            inset -2px -2px 1px hsl(0 0% 100%),
+            inset 2px 2px 4px hsl(0 0% 0% / 20%);
+    }
+
+    blockquote::after {
+        content: "❝";
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: -2px;
+        transform: translate(-50%, -50%);
+        width: 1.3em;
+        height: 1.3em;
+        background: white;
+        box-shadow: 0 4px 5px -1px hsla(0 0% 0% / 20%);
+        border-radius: 999px;
+        display: grid;
+        place-content: center;
+        padding-top: .5em;
+        color: var(--accent-color);
+        font-size: 36px;
+        font-style: normal;
+        text-indent: 0;
+    }
+
+    .blockquote-author-image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: var(--quote-image-width);
+        height: 100%;
+        opacity: 0.75;
+        background: var(--accent-color) var(--image) no-repeat center / cover;
+        background-blend-mode: hard-light;
+        border-top-left-radius: var(--border-rad);
+        border-bottom-left-radius: var(--border-rad);
+    }
+
+    cite {
+        display: block;
+        margin-top: 30px;
+        text-indent: 0;
+        text-align: center;
+        font: bold .9rem var(--type-body);
+        text-transform: uppercase;
+        color: hsl(0 0% 20%);
+    }
+
+    @media (min-width: 768px) {
+        cite {
+            margin-left: calc(1rem - var(--quote-image-width));
+        }
+    }
+
+    .cite-last-name {
+        background: var(--accent-color);
+        color: var(--quote-bg);
+    }
+
+
+
+
+
+    .controls {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.8em;
+        opacity: 0.7;
+        transition: .2s;
+    }
+
+    .controls:hover,
+    .controls:focus {
+        opacity: 1;
+    }
+
+    .controls label {
+        font-weight: bold;
+        text-transform: lowercase;
+    }
+
+    .controls input {
+        display: block;
+        width: 100%;
+        border: 0;
+        outline: none;
+        padding: 0;
+    }
+</style>
+
+<style>
+.hljs-line-numbers {
+    text-align: right;
+    border-right: 1px solid #ccc;
+    color: #999;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+</style>
+
+
+<article class="article">
+	<h1 style="font-size:35px;">Literacy Autobiography</h1>
+    <h2 style="font-size:25px;"><i>by <a href="https://jonathanferrari.com">Jonathan Ferrari</a></i></h2>
+    <br/>
+    <div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-radius:10px;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">        <span style="color: #000000">metaData</span> <span style="color: #ce5c00; font-weight: bold">=</span> <span style="color: #ce5c00; font-weight: bold">\</span>
+        <span style="color: #000000; font-weight: bold">{</span>
+         <span style="color: #4e9a06">&quot;Semester&quot;</span><span style="color: #ce5c00; font-weight: bold">:</span> <span style="color: #0000cf; font-weight: bold">2023</span><span style="color: #000000; font-weight: bold">.</span><span style="color: #000000">getSemester</span><span style="color: #000000; font-weight: bold">(</span><span style="color: #4e9a06">&quot;Spring&quot;</span><span style="color: #000000; font-weight: bold">),</span>
+         <span style="color: #4e9a06">&quot;GSI&quot;</span><span style="color: #ce5c00; font-weight: bold">:</span> <span style="color: #4e9a06">&quot;Rafa&quot;</span><span style="color: #000000; font-weight: bold">,</span>
+         <span style="color: #4e9a06">&quot;Professor&quot;</span><span style="color: #ce5c00; font-weight: bold">:</span> <span style="color: #4e9a06">&quot;Hull&quot;</span><span style="color: #000000; font-weight: bold">,</span>
+         <span style="color: #4e9a06">&quot;Date&quot;</span><span style="color: #ce5c00; font-weight: bold">:</span> <span style="color: #000000">date</span><span style="color: #000000; font-weight: bold">.</span><span style="color: #000000">getYear</span><span style="color: #000000; font-weight: bold">(</span><span style="color: #0000cf; font-weight: bold">2023</span><span style="color: #000000; font-weight: bold">).</span><span style="color: #000000">getMonth</span><span style="color: #000000; font-weight: bold">(</span><span style="color: #0000cf; font-weight: bold">03</span><span style="color: #000000; font-weight: bold">).</span><span style="color: #000000">getDay</span><span style="color: #000000; font-weight: bold">(</span><span style="color: #0000cf; font-weight: bold">12</span><span style="color: #000000; font-weight: bold">).</span><span style="color: #000000">getWeekday</span><span style="color: #000000; font-weight: bold">(</span><span style="color: #4e9a06">&quot;Sunday&quot;</span><span style="color: #000000; font-weight: bold">);</span>
+        <span style="color: #000000; font-weight: bold">}</span>
+</pre></div>
+    <br/>
+
+	<par>
+        Literacy is integral to life in the modern world. 
+        It has been a topic of though for many of the world's greatest minds.
+        For now, I'll let two of my favorite histogrical figures tell you about why <i>they</i> think literacy is so important.
+    </par>
+	
+	<blockquote><br/>
+		<p style="font-size:30px;margin-left:20%;">Once you learn to read, you will be forever free.</p>
+		<cite style="font-size:20px;">- Frederick <span class="cite-last-name">Douglass</span> <i>(1845)</i></cite>
+		<div class="blockquote-author-image" style="--image: url('https://upload.wikimedia.org/wikipedia/commons/c/c5/Frederick_Douglass_%28circa_1879%29.jpg')"></div>
+	</blockquote>
+    <br/>
+    
+    <par>
+        More than 150 years later, Carl segan references Douglass when he says:
+    </par>
+    
+    <br/>
+    <blockquote><br/>
+        <p style="font-size:25px;margin-left:20%;">Frederick Douglass taught that literacy is the path from slavery to freedom. There are many kinds of slavery and many kinds of freedom, but reading is still the path.</p>
+		<cite style="font-size:20px;">Carl <span class="cite-last-name">Segan</span> <i>(1997)</i></cite>
+		<div class="blockquote-author-image" style="--image: url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2004/11/carl_sagan_1934_-_1996/9513586-4-eng-GB/Carl_Sagan_1934_-_1996_pillars.jpg')"></div>
+	</blockquote>
+</article>
